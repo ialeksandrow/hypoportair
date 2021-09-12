@@ -1,0 +1,418 @@
+/* Global */
+$primary-color: #61dafb;
+$secondary-color: #20232a;
+$secondary-color-light: #282c34;
+$secondary-color-lighter: #32363e;
+$tertiary-color: #ffffff;
+$error: #fc9282;
+$info: #fac863;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: $secondary-color-light;
+  color: $tertiary-color;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+$tablet: 1380px;
+$mobile: 768px;
+
+@mixin mq($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+/* Main Navigation */
+#main-nav {
+  padding: 15px 0;
+  background-color: $secondary-color;
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mq($mobile) {
+      flex-direction: column;
+    }
+  }
+
+  & .logo {
+    max-height: 50px;
+
+    @include mq($mobile) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/* Main Menu */
+.main-menu {
+  display: flex;
+
+  &__item + &__item {
+    margin-left: 30px;
+  }
+
+  &__link,
+  &__link:active,
+  &__link:visited {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    color: $tertiary-color;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__link--active {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    color: $primary-color;
+  }
+}
+
+/* Hero Header */
+#hero {
+  height: 700px;
+  width: 100%;
+
+  & .container {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    align-items: center;
+    background: url('./../images/hero.png') center right no-repeat;
+  }
+}
+
+/* Hero Form */
+.hero__form {
+  width: 50%;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #20232ab3;
+
+  @include mq($tablet) {
+    width: 100%;
+  }
+
+  @include mq($mobile) {
+    padding: 15px;
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+    color: $primary-color;
+
+    @include mq($mobile) {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+  }
+
+  &__error {
+    margin-bottom: 30px;
+    color: $error;
+
+    @include mq($mobile) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    margin: 30px 0;
+
+    @include mq($mobile) {
+      grid-template-columns: 1fr;
+      grid-gap: 15px;
+      margin: 15px 0;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      margin-bottom: 15px;
+    }
+
+    & input,
+    & select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      background-color: $secondary-color-lighter;
+      color: $tertiary-color;
+      transition: box-shadow 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 0 1px $primary-color;
+      }
+
+      @include mq($mobile) {
+        padding: 5px;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    input[type='date']::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+  }
+
+  &__button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    background-color: $primary-color;
+    color: $secondary-color-lighter;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #61dafbb3;
+    }
+
+    @include mq($mobile) {
+      padding: 5px 30px;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+/* Reservations Section */
+.reservations {
+  padding: 30px 0;
+  background-color: $secondary-color;
+
+  .reservations__block {
+    padding: 30px;
+    border-radius: 5px;
+    background-color: $secondary-color-light;
+
+    @include mq($mobile) {
+      padding: 15px;
+    }
+  }
+
+  &__heading {
+    width: auto;
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+    color: $primary-color;
+
+    @include mq($mobile) {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+
+    &::after {
+      content: attr(data-reservations-count);
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: -50%;
+      left: calc(100% + 15px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      background-color: $info;
+      color: $secondary-color-light;
+
+      @include mq($mobile) {
+        height: 20px;
+        width: 20px;
+        left: calc(100% + 5px);
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  &__view {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    margin-top: 30px;
+
+    @include mq($tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq($mobile) {
+      grid-template-columns: 1fr;
+      grid-gap: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  &__tracker {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: $secondary-color-lighter;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      &__user {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        color: $primary-color;
+
+        @include mq($mobile) {
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+        }
+      }
+
+      &__action {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        background-color: $error;
+        color: $secondary-color-lighter;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #fc9282b3;
+        }
+
+        @include mq($mobile) {
+          height: 20px;
+          width: 20px;
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 15px;
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        & span:last-of-type {
+          color: $info;
+        }
+
+        &:nth-of-type(2) span:first-of-type {
+          height: 1px;
+          width: 100%;
+          margin-top: 10px;
+          background-color: $primary-color;
+        }
+
+        &:nth-of-type(2) span:last-of-type {
+          align-self: center;
+          color: $tertiary-color;
+        }
+
+        &:nth-of-type(3) span:last-of-type {
+          align-self: flex-start;
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 1px $primary-color;
+    }
+  }
+}
+
+/* Main Footer */
+#main-footer {
+  padding-bottom: 30px;
+  background-color: $secondary-color;
+}
+
+.footer__content {
+  padding: 15px 30px;
+  border-radius: 5px;
+  background-color: $secondary-color-light;
+
+  @include mq($mobile) {
+    padding: 15px;
+  }
+
+  & a,
+  & a:active,
+  & a:visited {
+    color: $info;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #fac863b3;
+    }
+  }
+}
