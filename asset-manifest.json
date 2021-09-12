@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/hypoportair/static/css/main.8d5f815b.chunk.css",
+    "main.js": "/hypoportair/static/js/main.adcaa9dc.chunk.js",
+    "main.js.map": "/hypoportair/static/js/main.adcaa9dc.chunk.js.map",
+    "runtime-main.js": "/hypoportair/static/js/runtime-main.c1c978d4.js",
+    "runtime-main.js.map": "/hypoportair/static/js/runtime-main.c1c978d4.js.map",
+    "static/css/2.30dc6789.chunk.css": "/hypoportair/static/css/2.30dc6789.chunk.css",
+    "static/js/2.2bf9d7c5.chunk.js": "/hypoportair/static/js/2.2bf9d7c5.chunk.js",
+    "static/js/2.2bf9d7c5.chunk.js.map": "/hypoportair/static/js/2.2bf9d7c5.chunk.js.map",
+    "index.html": "/hypoportair/index.html",
+    "static/css/2.30dc6789.chunk.css.map": "/hypoportair/static/css/2.30dc6789.chunk.css.map",
+    "static/css/main.8d5f815b.chunk.css.map": "/hypoportair/static/css/main.8d5f815b.chunk.css.map",
+    "static/js/2.2bf9d7c5.chunk.js.LICENSE.txt": "/hypoportair/static/js/2.2bf9d7c5.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/hypoportair/static/media/hero.cc813957.png",
+    "static/media/logo.d176cb36.svg": "/hypoportair/static/media/logo.d176cb36.svg",
+    "static/media/index.css": "/hypoportair/static/media/open-sans-vietnamese-400-normal.5ec64a94.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c1c978d4.js",
+    "static/css/2.30dc6789.chunk.css",
+    "static/js/2.2bf9d7c5.chunk.js",
+    "static/css/main.8d5f815b.chunk.css",
+    "static/js/main.adcaa9dc.chunk.js"
+  ]
+}
